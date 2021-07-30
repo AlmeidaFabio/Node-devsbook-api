@@ -1,4 +1,4 @@
-import { Router } from "express";
+import { Request, Response, Router } from "express";
 import multer from 'multer';
 import { AuthController } from "../controllers/AuthController";
 import { ConfigController } from "../controllers/ConfigController";
@@ -22,6 +22,10 @@ const postsController = new PostController();
 const feedController = new FeedController();
 const searchController = new SearchController();
 const configController = new ConfigController();
+
+router.get('/', (request:Request, response:Response) => {
+    response.send("Devsbook Api");
+});
 
 router.post('/api/login', authController.login);
 
